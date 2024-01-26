@@ -8,26 +8,28 @@ import {
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from '../screens/HomeScreen';
 import GradientClockTutorial from '../screens/GradientClockTutorial';
-const Stack = createNativeStackNavigator<RootStack>();
+import BendingCircleAnimation from '../screens/BendingCircleAnimation';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+const Drawer = createDrawerNavigator<RootStack>();
 export const navigationRef = createNavigationContainerRef<RootStack>();
 
 const AppNavigation = () => {
   return (
     <NavigationContainer ref={navigationRef}>
-      <Stack.Navigator
+      <Drawer.Navigator
         screenOptions={{
-          headerShown: false,
-          statusBarAnimation: 'slide',
-          statusBarColor: 'transparent',
-          animation: 'slide_from_right',
-          animationTypeForReplace: 'push',
+          lazy: true,
         }}>
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
-        <Stack.Screen
+        <Drawer.Screen name="HomeScreen" component={HomeScreen} />
+        <Drawer.Screen
           name="GradientClockTutorial"
           component={GradientClockTutorial}
         />
-      </Stack.Navigator>
+        <Drawer.Screen
+          name="BendingCircleAnimation"
+          component={BendingCircleAnimation}
+        />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 };
