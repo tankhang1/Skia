@@ -10,6 +10,7 @@ import HomeScreen from '../screens/HomeScreen';
 import GradientClockTutorial from '../screens/GradientClockTutorial';
 import BendingCircleAnimation from '../screens/BendingCircleAnimation';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import ChasingMouseBubbles from '../screens/ChasingMouseBubbles';
 const Drawer = createDrawerNavigator<RootStack>();
 export const navigationRef = createNavigationContainerRef<RootStack>();
 
@@ -28,6 +29,10 @@ const AppNavigation = () => {
         <Drawer.Screen
           name="BendingCircleAnimation"
           component={BendingCircleAnimation}
+        />
+        <Drawer.Screen
+          name="ChasingMouseBubbles"
+          component={ChasingMouseBubbles}
         />
       </Drawer.Navigator>
     </NavigationContainer>
